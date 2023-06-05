@@ -22,10 +22,12 @@ tags:
    - 0拷贝：用户空间和内核空间不进行拷贝。TCP中，应用层到kernel有一次payload拷贝，传输层到网络层有一次socket buffer（skb）拷贝，网络层到用户态driver是指针传递无拷贝，用户态driver封装后通过dma给网卡也是一次拷贝。所以TCP一共三次拷贝，而RDMA一共只有DMA的一次拷贝。
    - 内核Bypass：数据流程绕过内核
 ![[Pasted image 20230520143816.png]]
+
 # 比较基于传统以太网域RDMA技术的通信
 
 - RDMA分为控制通路和数据通路，控制通路需要进入内核态准备通信所需的内存资源
 - RDMA的数据收发绕过了内核并且数据交换过程并不需要CPU参与，报文的组装和解析是由硬件完成的。
+
 # RDMA基本元素
 
 | 缩略语 | 全称 | 备注 |
@@ -52,7 +54,7 @@ tags:
 - RDMA技术中的QP的模型就是需要保序的，单个QP不能并行发送消息，WQE必须按序处理。如果传输不互相关联，那么应该创建多个QP来满足并行的需求。
 - Send-Recv过程中发送端并不知道发送的数据会放到哪里，接收端下发的WQE告知硬件收到的数据需要放到哪个地址。
 
-![Pasted image 20230520152359.png](https://cdn.nlark.com/yuque/0/2023/png/36097650/1685933323340-55e621e4-7898-490f-a4fd-cd9b5b9a3668.png#averageHue=%23eae9e9&clientId=u617dffe6-8d2e-4&from=drop&id=u9f637bca&originHeight=896&originWidth=1568&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=434246&status=done&style=none&taskId=u33108d1e-9051-43f2-b0fa-7a18fead047&title=)
+![Pasted image 20230520152359.png](../images/500x300.png)
 
 # RDMA操作类型
 ## Send & Receive
