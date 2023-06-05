@@ -27,6 +27,7 @@ tags:
 - RDMA分为控制通路和数据通路，控制通路需要进入内核态准备通信所需的内存资源
 - RDMA的数据收发绕过了内核并且数据交换过程并不需要CPU参与，报文的组装和解析是由硬件完成的。
 # RDMA基本元素
+
 | 缩略语 | 全称 | 备注 |
 | --- | --- | --- |
 | WQ | Work Queue | 存放任务书WQE的FIFO |
@@ -50,7 +51,9 @@ tags:
 - 对于SEND或RDMA Write请求，在数据被写入接收方内存之前HCA可能已经回复ACK，如果后续把数据写入内存时出错，接收方会通知上层用户出错（可能通过WC），但不会通知实际发送方。如何处理由接收方决定。发送方接收到ACK后就认为对端收到了（ACK仅仅表示数据已经成功到达响应节点的容错域（Fault））。
 - RDMA技术中的QP的模型就是需要保序的，单个QP不能并行发送消息，WQE必须按序处理。如果传输不互相关联，那么应该创建多个QP来满足并行的需求。
 - Send-Recv过程中发送端并不知道发送的数据会放到哪里，接收端下发的WQE告知硬件收到的数据需要放到哪个地址。
+
 ![Pasted image 20230520152359.png](https://cdn.nlark.com/yuque/0/2023/png/36097650/1685933323340-55e621e4-7898-490f-a4fd-cd9b5b9a3668.png#averageHue=%23eae9e9&clientId=u617dffe6-8d2e-4&from=drop&id=u9f637bca&originHeight=896&originWidth=1568&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=434246&status=done&style=none&taskId=u33108d1e-9051-43f2-b0fa-7a18fead047&title=)
+
 # RDMA操作类型
 ## Send & Receive
 
