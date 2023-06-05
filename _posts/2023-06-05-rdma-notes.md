@@ -1,7 +1,7 @@
 ---
 title: 'RDMA Notes'
 date: 2023-06-05
-permalink: /posts/rdma-notes/
+permalink: /posts/2023/06/rdma-notes/
 tags:
   - rdma
   - network
