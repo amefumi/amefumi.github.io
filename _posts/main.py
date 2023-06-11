@@ -1,5 +1,5 @@
 import os
-import sys
+import re
 import requests
 from bs4 import BeautifulSoup
 import imghdr
@@ -49,8 +49,8 @@ def process_markdown_file(md_file):
 
         # 从图片链接中提取文件名
         save_path, save_name = download_image(image_url, images_dir, index)
-
-        image_tag['src'] = save_path
+        print(save_path, save_path.replace(r"\\", r"/"))
+        image_tag['src'] = save_path.replace(r"\\", r"/")
         image_tag['alt'] = save_name
     
     # 将BeautifulSoup对象转换为Markdown格式
@@ -62,6 +62,16 @@ def process_markdown_file(md_file):
     with open("res_" + md_file, 'w', encoding='utf-8') as file:
         file.write(str(markdown))
 
+def replace_file_paths(file_path):
+    # 读取文本文件, utf-8编码
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    pattern = r"\((.*?)\\\\(.*?)\)"
+    replaced_text = re.sub(pattern, lambda match: f"({match.group(1)}/{match.group(2)})" , content)
+    # 保存替换后的文本,UTF-8编码
+    with open("res_" + file_path, 'w', encoding='utf-8') as file:
+        file.write(replaced_text)
+
 if __name__ == "__main__":
     # 通过argparse模块解析命令行参数
     import argparse
@@ -70,3 +80,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     markdown_file = args.f
     process_markdown_file(markdown_file)
+    replace_file_paths('res_'+ markdown_file)

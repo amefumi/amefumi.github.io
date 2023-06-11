@@ -1,11 +1,10 @@
 ---
 title: 'RDMA Notes'
-date: 2023-06-09
+date: 2023-06-11
 permalink: /posts/2023/06/rdma-notes/
 tags:
-  - rdma
+  - RDMA
 ---
-
 #  参考资料 
 
 本笔记主要参考了知乎的《RDMA杂谈》一文： [ https://zhuanlan.zhihu.com/p/164908617 ](https://zhuanlan.zhihu.com/p/164908617) 其他参考资料主要为IB协议。 可供参考的资料有： 
@@ -26,25 +25,38 @@ tags:
 
 
 
-![0](images-rdma-notes\\image-0.png)
+![0](images-rdma-notes/image-0.png)
 
 #  比较基于传统以太网域RDMA技术的通信 
 
   * RDMA分为控制通路和数据通路，控制通路需要进入内核态准备通信所需的内存资源 
   * RDMA的数据收发绕过了内核并且数据交换过程并不需要CPU参与，报文的组装和解析是由硬件完成的。 
 
-
-
 #  RDMA基本元素 
 
-| 缩略语 | 全称 | 备注 | | --- | --- | --- | | WQ | Work Queue | 存放任务书WQE的FIFO | | WQE | Work Queue Entry | 软件下发给硬件的任务说明 | | QP | Queue Pair | 一对Work Queue，包括一个SQ和一个RQ。QP是RDMA通信的基本单元（而不是节点） | | QPN | Qeeue Pair Number | 每个节点上的每个QP都有的唯一的编号，可以唯一确定一个节点上的QP | | QPC | Queue Pair Context | 记录QP信息的表 | | SQ | Send Queue | WQ的实例 | | RQ | Reveive Queue | WQ的实例 | | SRQ | Shared Receive Queue | 使用RQ的情况远小于SQ，所以多个QP共享一个SRQ来节省内存 | | CQ | Completion Queue | 任务报告的FIFO队列 | | CQE | Completion Queue Entry | 硬件完成任务后返回给软件的“任务报告” | | WR | Work Request | “工作请求”，是WQE在用户层的映射 | | WC | Work Completion | “工作完成”，CQE在用户层的映射 | | MR | Memory Region | | | HCA | Host Channel Adapter | 即RDMA硬件 | 
+| 缩略语 | 全称 | 备注 |
+| --- | --- | --- |
+| WQ | Work Queue | 存放任务书WQE的FIFO |
+| WQE | Work Queue Entry | 软件下发给硬件的任务说明 |
+| QP | Queue Pair | 一对Work Queue，包括一个SQ和一个RQ。QP是RDMA通信的基本单元（而不是节点） |
+| QPN | Qeeue Pair Number | 每个节点上的每个QP都有的唯一的编号，可以唯一确定一个节点上的QP |
+| QPC | Queue Pair Context | 记录QP信息的表 |
+| SQ | Send Queue | WQ的实例 |
+| RQ | Reveive Queue | WQ的实例 |
+| SRQ | Shared Receive Queue | 使用RQ的情况远小于SQ，所以多个QP共享一个SRQ来节省内存 |
+| CQ | Completion Queue | 任务报告的FIFO队列 |
+| CQE | Completion Queue Entry | 硬件完成任务后返回给软件的“任务报告” |
+| WR | Work Request | “工作请求”，是WQE在用户层的映射 |
+| WC | Work Completion | “工作完成”，CQE在用户层的映射 |
+| MR | Memory Region |  |
+| HCA | Host Channel Adapter | 即RDMA硬件 |
 
 **注意** ： 
 
   * WQE和CQE都不对用户可见，是驱动中的概念，用户通过API下发WR，并收到WC。 
   * 对于SEND或RDMA Write请求，在数据被写入接收方内存之前HCA可能已经回复ACK，如果后续把数据写入内存时出错，接收方会通知上层用户出错（可能通过WC），但不会通知实际发送方。如何处理由接收方决定。发送方接收到ACK后就认为对端收到了（ACK仅仅表示数据已经成功到达响应节点的容错域（Fault））。 
   * RDMA技术中的QP的模型就是需要保序的，单个QP不能并行发送消息，WQE必须按序处理。如果传输不互相关联，那么应该创建多个QP来满足并行的需求。 
-  * Send-Recv过程中发送端并不知道发送的数据会放到哪里，接收端下发的WQE告知硬件收到的数据需要放到哪个地址。 ![1](images-rdma-notes\\image-1.png)
+  * Send-Recv过程中发送端并不知道发送的数据会放到哪里，接收端下发的WQE告知硬件收到的数据需要放到哪个地址。 ![1](images-rdma-notes/image-1.png)
 
 
 
@@ -69,7 +81,7 @@ tags:
 
 ##  Read 
 
-  * Read和Write一样都携带一个虚拟地址。Write First和Read Request都含有RETH扩展头： ![2](images-rdma-notes\\image-2.png) **注意** ： 
+  * Read和Write一样都携带一个虚拟地址。Write First和Read Request都含有RETH扩展头： ![2](images-rdma-notes/image-2.png) **注意** ： 
   * Send和Receive的收、发过程需要有对端主动参与，而Read和Write的读写是本端对一个没有主动性的对端进行的操作的语义。 
   * 可靠连接的Read和Write在对端也有QP。对端的QP不需要RQ WQE来接受消息，但是QP实体存在，硬件会根据报文中的QPN找到本地的QPC和连接信息进行校验。 
   * key的交换不局限于途径，可以通过Send/receive或者socket连接。 
@@ -115,7 +127,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
 
 ###  连接 
 
-  * 对于基于连接的服务来说，每个QP都和另一个远端节点相关联。在这种情况下，QP Context（QPC）中包含有远端节点的QP信息。在建立通信的过程中，两个节点会交换包括稍后用于通信的QP在内的对端信息 ![3](images-rdma-notes\\image-3.webp)
+  * 对于基于连接的服务来说，每个QP都和另一个远端节点相关联。在这种情况下，QP Context（QPC）中包含有远端节点的QP信息。在建立通信的过程中，两个节点会交换包括稍后用于通信的QP在内的对端信息 ![3](images-rdma-notes/image-3.webp)
   * 连接服务类型中的每个QP，都和唯一的另一个QP建立了连接，也就是说QP下发的每个WQE的目的地都是唯一的。 
   * 连接的维护就是QPC里面的记录，断开连接只需要修改QPC内容。 
 
@@ -161,7 +173,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
 
 
 
-![4](images-rdma-notes\\image-4.jpeg)
+![4](images-rdma-notes/image-4.jpeg)
 
   * 注意： 
     * 地址转换和写入内存都无需CPU参与，只是MR建立时查表。 
@@ -193,7 +205,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
   * IB协议规定，每个Node节点必须至少有一个PD，每个QP都必须属于一个PD，每个MR也必须属于一个PD。 
   * PD是一个软件实体的结构体。记录了保护域的信息。初始化QP和MR时，必须传入PD的指针/句柄。 
   * PD是本地概念，对于其他节点是不可见的，MR对于本端和对端都可见。 
-  * PD的作用主要是隔离保护，如下图，QP8不能和MR1通信，因为：首先，QP8只能和QP3建立连接，不能连接到QP6进而和MR1访问；其次，由于PD0的存在，QP3只能访问MR0，不能访问MR1. ![5](images-rdma-notes\\image-5.png)
+  * PD的作用主要是隔离保护，如下图，QP8不能和MR1通信，因为：首先，QP8只能和QP3建立连接，不能连接到QP6进而和MR1访问；其次，由于PD0的存在，QP3只能访问MR0，不能访问MR1. ![5](images-rdma-notes/image-5.png)
 
 
 
@@ -209,7 +221,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
   * 对于RC，两端有连接，对端信息存储在QP Context中，不易丢失。而UD没有链接，在IB协议中GID（Global Identifier）替代了IP的地位，需要有一个通讯录地址簿来查找一个节点的GID。 
   * 用户不是直接把对端的地址信息GID填到WQE中的，而是提前准备了一个地址簿，每次通过一个索引来指定对端节点的地址信息，这个索引就是AH。每个目的节点都创建一个AH，而AH可以被多个QP公用。 
   * UD通信前，用户要为每个可能的对端节点创建AH（ **AH是用户调用Verbs API创建的** ），AH被驱动放到系统内存并返回索引句柄。 
-  * AH和QP、MR一样，都通过PD进行资源划分，不同PD间的AH不能相互访问，如下图所示： ![6](images-rdma-notes\\image-6.png) **注意** ： 
+  * AH和QP、MR一样，都通过PD进行资源划分，不同PD间的AH不能相互访问，如下图所示： ![6](images-rdma-notes/image-6.png) **注意** ： 
   * RC协议不需要AH，AH是只针对UD的概念。AH中存储的是通过Socket得到的GID、QKey、RKey等。 
   * 对于RoCEv2来说，GID（即用户接口用的网络层地址）会转化成IPv4/IPv6地址。 
   * 对于RoCEv2来说，目的端口号恒为4791，源端口号一般是随机生成的。 
@@ -224,7 +236,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
   * QP是一个队列结构。在硬件上，QP是一段包含了若干个WQE的存储空间，IB网卡从这段空间中读取WQE的内容并按照用户期望去内存中取数据。IB协议没有限制这段空间在内存上还是IB板载存储空间上。软件上，QP是一个IB网卡驱动维护的数据结构，包含QP的地址指针和相关软件属性。 
   * 问题是：驱动程序里已经存储了QP的软件属性，为什么还要用QPC呢？ 
   * 因为QPC是给硬件看的，也会用来在软硬件之间同步QP信息。软件存储的QP信息在虚拟地址空间中，硬件无法得知，所以需要软件提前开辟QPC空间，承载QP的起始地址、WQE数量等信息给网卡看。 
-  * 硬件得知QPC的地址，进而解析QPC的内容，从而得知QP的位置、大小、序号等信息，进而找到QP。进而知道应该取第几个WQE处理。 ![7](images-rdma-notes\\image-7.png)
+  * 硬件得知QPC的地址，进而解析QPC的内容，从而得知QP的位置、大小、序号等信息，进而找到QP。进而知道应该取第几个WQE处理。 ![7](images-rdma-notes/image-7.png)
 
 
 
@@ -260,7 +272,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
 
 ##  QP状态机 
 
-![8](images-rdma-notes\\image-8.png)
+![8](images-rdma-notes/image-8.png)
 
   * 绿色状态转换由Modify QP的用户接口主动触发，红色的状态是错误自动跳转，需要由Modify QP重新配置。 
   * 通过Create QP进入（左上角，不考虑EE概念，它属于RD服务），通过Destroy QP离开 
@@ -305,7 +317,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
 
 
 
-![9](images-rdma-notes\\image-9.webp)
+![9](images-rdma-notes/image-9.webp)
 
   * 上层驱动通过CQE中指明的WQE编号得知其关联的任务。 
 
@@ -313,7 +325,7 @@ RDMA通信的核心仍然是IB协议。 **RDMA的基本通信单元是QP** ，�
 
 ###  CQ Context (CQC) 
 
-CQ是一段存放CQE队列的空间，需要把这段空间的格式等信息通过CQC编写好，放到硬件可以读取的内存中，这片内存就是CQC ![10](images-rdma-notes\\image-10.jpeg)
+CQ是一段存放CQE队列的空间，需要把这段空间的格式等信息通过CQC编写好，放到硬件可以读取的内存中，这片内存就是CQC ![10](images-rdma-notes/image-10.jpeg)
 
 ###  CQ Number (CQN) 
 
@@ -331,7 +343,7 @@ IB协议内有三种错误类型：
 
 ###  完成错误的检测机制 
 
-完成错误通过在CQE中填写错误码实现上报，在通信的Requester和Responder中分别有错误检测器进行检测。 ![11](images-rdma-notes\\image-11.webp) Requester中有本地错误检测和远端错误检测模块。本地错误检测模块对SQ中的WQE进行检测，如果出错就直接填写错误码放入CQ，不会进入通信过程。远端检测模块检测远端返回的ACK中是否含有响应端的报错，远端检测模块只对RC有用。 Responder只有本地错误检测模块。用于检测发到Responder的报文是否有问题，如果有错误，会上报一个CQE，并且会在RC中回复含有错误信息的ACK。 
+完成错误通过在CQE中填写错误码实现上报，在通信的Requester和Responder中分别有错误检测器进行检测。 ![11](images-rdma-notes/image-11.webp) Requester中有本地错误检测和远端错误检测模块。本地错误检测模块对SQ中的WQE进行检测，如果出错就直接填写错误码放入CQ，不会进入通信过程。远端检测模块检测远端返回的ACK中是否含有响应端的报错，远端检测模块只对RC有用。 Responder只有本地错误检测模块。用于检测发到Responder的报文是否有问题，如果有错误，会上报一个CQE，并且会在RC中回复含有错误信息的ACK。 
 
 ###  常见错误 
 
@@ -658,7 +670,7 @@ IB协议内有三种错误类型：
     export PYTHONPATH=/home/ame/rdma-core/build/python:$PYTHONPATH
     
 
-Pyverbs作为Cython库的原理是： ![12](images-rdma-notes\\image-12.png)
+Pyverbs作为Cython库的原理是： ![12](images-rdma-notes/image-12.png)
 
 #  内存地址基础知识 
 
