@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "Amefumi - 雨踏み"
+title                    : "Tianyu Zuo Home Page"
 title_separator          : "-"
-name                     : &name "Amefumi"
-description              : &description "Walk in the rain."
+name                     : &name "Tianyu Zuo"
+description              : &description "Master Student, University of Chinese Academy of Sciences."
 url                      : https://amefumi.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "amefumi/amefumi.github.io"
@@ -80,9 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Amefumi"
+  name             : "Tianyu Zuo"
   avatar           : "profile.png"
-  bio              : "Master Candidate."
+  bio              : "M.S. at UCAS."
   location         : "Beijing, China"
   employer         :
   pubmed           : 
