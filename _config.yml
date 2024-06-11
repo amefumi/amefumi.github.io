@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "Tianyu Zuo Home Page"
+title                    : "Tianyu Zuo"
 title_separator          : "-"
 name                     : &name "Tianyu Zuo"
 description              : &description "Master Student, University of Chinese Academy of Sciences."
@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Tianyu Zuo"
   avatar           : "profile.png"
-  bio              : "M.S. at UCAS."
+  bio              : "Master Student, Institute of Computing Technology, Chinese Academy of Sciences (ICT, CAS)."
   location         : "Beijing, China"
   employer         :
   pubmed           : 
   googlescholar    : 
-  email            :
+  email            : "ty.zuo@outlook.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
