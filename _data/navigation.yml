@@ -7,7 +7,7 @@ main:
     url: /research/
 
   - title: "Photos"
-    url: /photos/
+    url: /photo/
         
   - title: "CV"
     url: /files/resume.pdf
