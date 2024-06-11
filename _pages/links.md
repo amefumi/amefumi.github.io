@@ -1,7 +1,8 @@
 ---
-title: "Useful Lins"
+title: "Some Useful Links"
 permalink: /link/
 author_profile: true
 ---
 # Online Courses
-- *[MIT 6.5840: Distributed Systems]* https://pdos.csail.mit.edu/6.824/
+- *[MIT 6.5840: Distributed Systems]* 
+    - https://pdos.csail.mit.edu/6.824/
