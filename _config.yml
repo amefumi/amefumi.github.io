@@ -209,13 +209,13 @@ defaults:
 
   - scope:
       path: ""
-      type: publications
+      type: publication
     values:
       layout: single
       author_profile: true
       share: true
       comments: true
-  # _portfolio
+  # _photo
   - scope:
       path: ""
       type: photo
@@ -224,7 +224,7 @@ defaults:
       author_profile: true
       share: true
       comment: true
-  # _talks
+  # _research
   - scope:
       path: ""
       type: research
