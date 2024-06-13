@@ -8,4 +8,4 @@ author_profile: true
 - [MIT 6.004: *Computation Structures*](https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/)
 - [MIT 6.5840: *Distributed Systems*](https://pdos.csail.mit.edu/6.824/)
 - [MIT 6.033: *Computer System Design*](https://web.mit.edu/6.033/www/)
-
+- [Stanford *MLSys Seminar* Series](https://mlsys.stanford.edu/)
