@@ -6,10 +6,9 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
-  - /index.html
 ---
 
-I am currently pursuing a Master's degree at the University of the Chinese Academy of Sciences (UCAS) and the Institute of Computing Technology, Chinese Academy of Sciences (ICT, CAS), under the supervision of [Prof. Yujun Zhang](http://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496789.html) ([English](https://www-ict-ac-cn.translate.goog/sourcedb/cn/jssrck/200909/t20090917_2496789.html?_x_tr_sch=http&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=zh-CN)). Prior to this, I obtained my Bachelor's degree from the Department of Automation at Tsinghua University in June 2022. My bachelor's thesis is under the supervision of [Prof. Tao Zhang](https://www.au.tsinghua.edu.cn/info/1081/3196.htm) ([English](https://www-au-tsinghua-edu-cn.translate.goog/info/1081/3196.htm?_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=zh-CN))
+I am currently pursuing a Master's degree at the University of the Chinese Academy of Sciences (UCAS), under the supervision of [Prof. Yujun Zhang](http://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496789.html) ([English](https://www-ict-ac-cn.translate.goog/sourcedb/cn/jssrck/200909/t20090917_2496789.html?_x_tr_sch=http&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=zh-CN)). Prior to this, I obtained my Bachelor's degree from the Department of Automation at Tsinghua University in June 2022. My bachelor's thesis is under the supervision of [Prof. Tao Zhang](https://www.au.tsinghua.edu.cn/info/1081/3196.htm) ([English](https://www-au-tsinghua-edu-cn.translate.goog/info/1081/3196.htm?_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=zh-CN))
 
 I speak Chinese, English, and Japanese.
 
