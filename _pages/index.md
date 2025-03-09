@@ -36,8 +36,3 @@ My research is primarily focused on computer networks and systems. I am particul
     1. Anything that is in the world when you're born is normal and ordinary and is just a natural part of the way the world works.
     2. Anything that's invented between when you're fifteen and thirty-five is new and exciting and revolutionary and you can probably get a career in it.
     3. Anything invented after you're thirty-five is against the natural order of things.
-
-# Public Key
-```plaintext
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGKkqZq9Cq9QrTlieY5jFfLP+YX5ttxmROd92U5Jldtha0hxJbYFjB7k0lYhMLgpc2WRhRBP+VMhqglz1BZrdXVkwGCGImPIyr/50WikUYZa5olM0rZJJ5mewDSRd0iB1U/GBkhZkeIqy+fxyBn6b80lMX6mVr/9dTFZgEGsjKjmniRs6GPCNekjHi5nF9gxbcl+JsQxnmLiAR5qMDxF+YRUDq/c08JDX/QUn57gE5iBsL/NULfjFe4h69pEjts6LGPbNuHLBsMGgGUdDkDenTfPQtuJJ7tfRY/DsD1mxDzmc2Hz5wr1J+zLFmKK6kJn+HTCWCk7OR9TmGqwBcNENaQ935wGKropxKYoDKdIRjJLuHRNB42yYkkAZB3wFLYg4spWyfrWtWARLDjjt/MoS1a6SiDchRvy915zyb6AaZDBiC6xR7tEoDs3urGyEIKl6rlR8Kuxt4PO5x+zPagIJlktSjUvMRcYN6zxxucW0dsDoFblSjT20EwSn0Ef9it2c= ame
-```
