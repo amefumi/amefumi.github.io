@@ -1,4 +1,5 @@
 ---
+layout: archive
 title: "All Rejections I've Received"
 permalink: /rej/
 author_profile: true
