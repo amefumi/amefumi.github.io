@@ -1,7 +1,7 @@
 # main links links
 main:
   - title: "Publications"
-    url: /publication/
+    url: /#publications/
 
   - title: "Photos"
     url: /photo/
@@ -12,5 +12,5 @@ main:
   - title: "Links"
     url: /link/
 
-  - titte: "My Rejections"
+  - title: "My Rejections"
     url: /rej/
