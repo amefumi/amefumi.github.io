@@ -15,10 +15,7 @@ I speak Chinese, English, and Japanese.
 *"Live your life"*
 
 # Research Interests
-My research is primarily focused on computer networks and systems. I am particularly interested in exploring the following areas:
-- Remote Direct Memory Access (RDMA)
-- Datacenter Networks (DCN)
-- Programmable Network and Software Defined Network
+My research focuses on improving data transmission efficiency in cloud computing systems. I aim to develop more efficient methods to utilize network resources in cloud infrastructures, therefore making cloud services more responsive and cost-effective for business, educational institutions, and entertainment platforms.
 
 # Publications
 - **[IWQoS'24]** "LoWAR: Enhancing RDMA over Lossy WANs with Transparent Error Correction." [[Slide](/files/IWQoS_LoWAR_Slides.pdf), [Paper](/files/IWQoS_LoWAR.pdf)]  
