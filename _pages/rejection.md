@@ -5,12 +5,18 @@ permalink: /rej/
 author_profile: true
 ---
 
-1. **April 27, 2018** - Rejected by the School of Software at Tsinghua University for transferring my major.  
+## Rejection Records
 
-2. **January 23, 2024** - Rejected by the ETH Zurich Student Summer Research Fellowship in Computer Science.  
+### Academic Transitions
+- **April 27, 2018**: Transfer application to the College of Software at Tsinghua University denied.
 
-3. **April 27, 2024** - Paper submission rejected by APNet'24 titled *"DCI-RDMA: A High-Performance RDMA Transmission Mechanism for Data Center Interconnect Networks"*.  
+### Fellowships
+- **January 23, 2024**: ETH Zurich Student Summer Research Fellowship in Computer Science not awarded.
+- **December 12 2024**: University of Chinese Academy of Sciences & ICT Dean's List not awarded.
 
-4. **March 11, 2025** - PhD application rejected by the Computer Science Department at the University of Southern California.  
+### Conference Submissions
+- **April 27, 2024**: DCI-RDMA paper rejected by APNet'24.
 
-5. **March 12, 2025** - PhD application rejected by the Computer Science Department at Rice University.  
+### PhD Applications
+- **March 11, 2025**: PhD program application to USC's Computer Science Department rejected.
+- **March 12, 2025**: PhD program application to Rice University's Computer Science Department rejected.    
