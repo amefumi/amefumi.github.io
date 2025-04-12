@@ -16,6 +16,8 @@ author_profile: true
 - **April 27, 2024**: DCI-RDMA paper rejected by APNet'24.
 
 ## PhD Applications
-- **March 11, 2025**: PhD program application to USC's Computer Science Department rejected.
-- **March 12, 2025**: PhD program application to Rice University's Computer Science Department rejected.
-- **March 17, 2025**: PhD program application to UMass Amherst's Computer Science Department rejected.
+- **March 11, 2025**: USC CS rejected.
+- **March 12, 2025**: Rice CS rejected.
+- **March 17, 2025**: UMass CS rejected.
+- **April 3, 2025**: UMich CS and UIUC ECE rejected.
+- **April 12, 2025**: UT-Austin CS rejected.
