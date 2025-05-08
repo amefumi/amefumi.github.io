@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About Me"
+title: "Tianyu Zuo's Homepage"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,19 +8,22 @@ redirect_from:
   - /about.html
 ---
 
-I am currently pursuing a Master's degree at the University of the Chinese Academy of Sciences (UCAS). Prior to this, I obtained my Bachelor's degree from the Department of Automation at Tsinghua University in June 2022.
-
-I speak Chinese, English, and Japanese.
-
-*"Live your life"*
+I am currently pursuing a Master's degree at the University of the Chinese Academy of Sciences (UCAS) and the Institute of Computing Technology (ICT, CAS), under the supervision of [Prof. Yujun Zhang](http://www.ict.ac.cn/sourcedb/cn/jssrck/200909/t20090917_2496789.html) ([English](https://www-ict-ac-cn.translate.goog/sourcedb/cn/jssrck/200909/t20090917_2496789.html?_x_tr_sch=http&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=zh-CN)). Prior to this, I obtained my Bachelor's degree from the Department of Automation at Tsinghua University in June 2022. My bachelor's thesis is under the supervision of [Prof. Tao Zhang](https://www.au.tsinghua.edu.cn/info/1081/3196.htm) ([English](https://www-au-tsinghua-edu-cn.translate.goog/info/1081/3196.htm?_x_tr_sl=zh-CN&_x_tr_tl=en&_x_tr_hl=zh-CN))
 
 # Research Interests
-My research focuses on improving data transmission efficiency in cloud computing systems. I aim to develop more efficient methods to utilize network resources in cloud infrastructures, therefore making cloud services more responsive and cost-effective for business, educational institutions, and entertainment platforms.
+My research is primarily focused on computer networks and systems. I am particularly interested in exploring the following areas:
+- Remote Direct Memory Access (RDMA)
+- Datacenter Networks (DCN)
+- Programmable Network and Software Defined Network
 
 # Publications
 - **[IWQoS'24]** "LoWAR: Enhancing RDMA over Lossy WANs with Transparent Error Correction." [[Slide](/files/IWQoS_LoWAR_Slides.pdf), [Paper](/files/IWQoS_LoWAR.pdf)]  
   IEEE/ACM International Symposium on Quality of Service (IWQoS), 2024.  
   **Tianyu Zuo**, Tao Sun, Shuyong Zhu, Wenxiao Li, Lu Lu, Zongpeng Du, and Yujun Zhang.  
+
+- **[IWQoS'25]** "NET-SM4: A High-performance Secure Encryption Mechanism Based on In-Network Computing." (To be announced)
+  IEEE/ACM International Symposium on Quality of Service (IWQoS), 2025.  
+  Wen Wang, Shuyong Zhu, **Tianyu Zuo**, Zhiyuan Wu, and Yujun Zhang.  
 
 # Honors and Awards
 - **Merit Student**, University of Chinese Academy of Sciences. 2024.
