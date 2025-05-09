@@ -21,9 +21,13 @@ My research is primarily focused on computer networks and systems. I am particul
   IEEE/ACM International Symposium on Quality of Service (IWQoS), 2024.  
   **Tianyu Zuo**, Tao Sun, Shuyong Zhu, Wenxiao Li, Lu Lu, Zongpeng Du, and Yujun Zhang.  
 
-- **[IWQoS'25]** "NET-SM4: A High-performance Secure Encryption Mechanism Based on In-Network Computing." (To be announced)
+- **[IWQoS'25]** "NET-SM4: A High-performance Secure Encryption Mechanism Based on In-Network Computing." (Regular Paper. To Be Announced.)  
   IEEE/ACM International Symposium on Quality of Service (IWQoS), 2025.  
   Wen Wang, Shuyong Zhu, **Tianyu Zuo**, Zhiyuan Wu, and Yujun Zhang.  
+
+- **[IWQoS'25]** "TraGe: A Generic Packet Representation for Traffic Classification Based on Header-Payload Differences." (Short Paper. To Be Announced.)  
+  IEEE/ACM International Symposium on Quality of Service (IWQoS), 2025.  
+  Chungang Lin, Yilong Jiang, Weiyao Zhang, Xuying Meng, **Tianyu Zuo**, and Yujun Zhang
 
 # Honors and Awards
 - **Merit Student**, University of Chinese Academy of Sciences. 2024.
