@@ -23,3 +23,4 @@ author_profile: true
 - **April 3, 2025**: UMich CS and UIUC ECE rejected.
 - **April 12, 2025**: UT-Austin CS rejected.
 - **April 23, 2025**: Gatech CS rejected.
+- **May 15, 2025**: Purdue ECE rejected.
