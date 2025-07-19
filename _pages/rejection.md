@@ -24,3 +24,4 @@ author_profile: true
 - **April 12, 2025**: UT-Austin CS rejected.
 - **April 23, 2025**: Gatech CS rejected.
 - **May 15, 2025**: Purdue ECE rejected.
+- **July 7, 2025**: UMN CS rejected.
